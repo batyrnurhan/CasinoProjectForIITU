@@ -1,0 +1,80 @@
+.gamefield {
+    display: block;
+    margin: 50px 10px;
+}
+
+.track {
+    display: inline;
+    margin: 10px;
+    margin-left: 100px;
+}
+
+.track img {
+    transform: rotate(-90deg);
+    margin-right: 60px;
+}
+
+.spade {
+    display: block;
+    margin: 15px; 
+}
+
+
+.spade img {
+    margin-right: 60px; 
+}
+
+.spade img:first-child {
+    margin-right: 24px; 
+}
+
+.heart {
+    display: block;
+    margin:  15px;
+}
+
+.heart img {
+    margin-right: 60px; 
+}
+
+
+.heart img:first-child {
+    margin-right: 24px; 
+}
+
+.club {
+    display: block;
+    margin:  15px;
+}
+
+.club img {
+    margin-right: 60px; 
+}
+
+
+.club img:first-child {
+    margin-right: 24px; 
+}
+
+.diamond {
+    display: block;
+    margin:  15px;
+}
+
+
+.diamond img {
+    margin-right: 60px; 
+}
+
+
+.diamond img:first-child {
+    margin-right: 24px; 
+}
+
+img {
+    width: 60px;
+}
+
+.second-deck{
+    margin: 15px;
+}

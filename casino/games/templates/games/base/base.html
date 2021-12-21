@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<style>
+   a {text-decoration: none !important;}
+</style>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>{% block title %}My Pages{% endblock %}</title>
+      <!-- Latest compiled and minified CSS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="static/games/css/master.css">
+      {% block site_css %}{% endblock %}
+      <style>
+         body{
+            background-image:url(static/games/img/b.jpg);
+            background-attachment: fixed
+         }
+         </style>
+         {% block body_in %}{% endblock %}
+         </head>
+         <body>
+            <nav class="navbar navbar-expand-lg navbar-dark mb-5" style="background-color:#000000; color:#0000; font-size: 20px;">
+               <div class="container">
+                  <a class="navbar-brand" style="color:#CCCCCC;  font-size: 20px; margin-left: 20px"
+                  href="{% url 'home' %}">
+                  Home
+               </a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="nav navbar-nav mr-auto" >
+                     <li class="nav-item mx-2"><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'all-games' %}"> Rules </a></li>
+                     {% if user.is_superuser %}
+                     <li class="nav-item mx-2"><a class="navbar-link"style="color:#CCCCCC;" href="admin">Admin</a></li>
+                     {% endif %}
+                     {% if user.is_authenticated %}
+                     <li class="nav-item mx-2"><a href="{% url 'logout' %}" style="color:#CCCCCC;">Logout</a></li>
+                     {% else %}
+                     <li class="nav-item mx-2"><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'register' %}"> Registration </a></li>
+                     <li class="nav-item mx-2"><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'login' %}"> Login </a></li>
+                     {% endif %}
+                
+                  </ul>
+                  <ul class="navbar-nav float-right justify-content-end navbar-right ">
+                     {% if user.is_authenticated %}
+                     <li class="nav-item float-right"><a class="navbar-link"style="color:#CCCCCC;" href="profile.html"><img src="{static/games/img/user.png}" width="35" height="35" class="border1">{{user.first_name}}</a></li>
+                     {% else %}
+                     <li class="nav-item float-right">
+                        <a class="navbar-link"style="color:#CCCCCC;" href="profile.html"><img src="static/games/img/user.png " width="35" height="35" class="border1">Username</a></li>
+                     {% endif %}
+                  </ul>
+               </div>
+            </div>
+         </nav>
+         {% block body %}{% endblock %}
+      </body>
+      </html>

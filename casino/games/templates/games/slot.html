@@ -1,0 +1,46 @@
+{% extends 'games/base/base.html' %}
+
+{% load static %}
+
+{% block title %}Slot{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="container">
+      
+<div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+    <link rel="stylesheet" href="static/games/css/slot.css">
+    <div class="screen">
+        <h1>Give it a shot and see if you can win</h1>
+        <h2></h2>
+    </div>
+    <div class="wrapper">
+        <div class="grid">
+            <h1 class="num">Go!</h1>
+            <h1 class="num">Go!</h1>
+            <h1 class="num">Go!</h1>
+            <button class="draw">Start</button>
+        </div>
+        <button class="hack">Kick it</button>
+        <script  src="static/games/js/slot.js"></script>
+    </div>
+</div>
+
+<div class="jumbotron row" style="background-color:#000000; opacity:0.9; color:yellow; font-size: 25px; font-weight: bold;">
+    <div class="col-3 text-center ">
+       <a href="blackjack.html"><img class="" src="static/games/img/blackjack.png"  width="200" height="200" /></a>
+    </div>
+    <div class="col-3 text-center">
+       <a href="roulette.html"><img src="static/games/img/roulette.png"  width="200" height="200" /></a>
+    </div>
+    <div class="col-3 text-center">
+       <a href="horserace.html"><img src="static/games/img/horserace.png"  width="200" height="200" /></a>
+    </div>
+    <div class="col-3 text-center">
+       <a href="slot.html"><img src="static/games/img/slottica.png"  width="200" height="200" /></a>
+    </div>
+ </div>
+</div>
+</div>
+<script  src="static/games/js/slot.js"></script>
+{% endblock %}

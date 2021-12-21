@@ -1,0 +1,40 @@
+{% extends 'games/base/base.html' %}
+
+{% load static %}
+
+{% block title %}BIBA and BOBA{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="container">
+     <div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+      <h1>Welcome to Casino by Biba and Boba</h1>
+     </div>
+
+     <div class="container">
+      <div class="container">
+        <div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+          <h1>{{user.initial_balance}}</h1>
+        </div>
+      </div>
+    </div>
+
+     <div class="jumbotron row" style="background-color:#000000; opacity:0.9; color:yellow; font-size: 25px; font-weight: bold;">
+        <div class="col-3 text-center ">
+           <a href="blackjack.html"><img class="" src="static/games/img/blackjack.png"  width="200" height="200" /></a>
+        </div>
+        <div class="col-3 text-center">
+           <a href="roulette.html"><img src="static/games/img/roulette.png"  width="200" height="200" /></a>
+        </div>
+        <div class="col-3 text-center">
+           <a href="horserace.html"><img src="static/games/img/horserace.png"  width="200" height="200" /></a>
+        </div>
+        <div class="col-3 text-center">
+           <a href="slot.html"><img src="static/games/img/slottica.png"  width="200" height="200" /></a>
+        </div>
+     </div>
+  </div>
+</div>
+{% endblock %}
+

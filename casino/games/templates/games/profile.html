@@ -1,0 +1,29 @@
+{% extends 'games/base/base.html' %}
+
+{% load static %}
+
+{% block title %}BIBA and BOBA{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="container">
+       <div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+        {% if user.is_authenticated %}
+        <h1>{{user.first_name}} {{user.username}} {{user.last_name}}</h1>
+        <h1>Balance</h1>
+            <h1>SMTH</h1>
+            <h1>SMTH</h1>
+            <h1>SMTH</h1>
+            <h1>SMTH</h1>
+
+        {% else %}
+        <h1>Sorry u dont login to see profile page</h1>
+        {% endif %}
+
+       </div>
+
+    </div>
+  </div>
+  {% endblock %}
+  
+  

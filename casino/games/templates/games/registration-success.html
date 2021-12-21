@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'games/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'games/css/all-games.css' %}">
+    <link rel="stylesheet" href="{% static 'games/css/registration-confirmation.css' %}">
+    <title>You send message successfuly!</title>
+</head>
+<body>
+    <article>
+        <div class="game-summary">
+            <section class="confirmation">
+                <h3>Thank for contact</h3>
+                <p>If u want to contact with organizer go to the <a href="mailto:{{ organizer_email }}">link</a></p>
+            </section>
+            <section class="continue">
+                <p><a href="/games" class="btn">Home</a></p>
+            </section>
+            </div>
+    </article>
+</body>
+</html>

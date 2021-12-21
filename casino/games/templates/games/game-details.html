@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'games/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'games/css/game-detail.css' %}">
+    <title>{{ game_title }}</title>
+</head>
+<body>
+    {% if game_found %}
+        <main>
+            <article>
+                <img id="main-image" src="{{ game.image.url }}" alt="{{ game.title }}">
+
+                <section>
+                    <h2>Meetup shortdesc</h2>
+                </section>
+
+                <section class="details">
+                    <h2>What is this game</h2>
+                    <p>{{ game_description }}</p>
+                </section>
+
+                <h2>Want to add game or rule?</h2>
+
+                <p>If u want to contact with organizer go to the <a href="mailto:{{ game.organizer_email }}">link</a></p>
+                <section class="registration">
+                    <form action="{% url 'game-detail' game.slug %}" method="post">
+                        {% csrf_token %}
+                        <ul>
+                        {{ form.as_ul }}
+                    </ul>
+                    <div class="registration-actions">
+                        <button>Contact</button>
+                    </div>
+                    </form>
+                </section>
+
+            </article>
+        </main>
+    {% else %}
+        <p>No games for this slug</p>
+    {% endif %}
+    
+</body>
+</html>

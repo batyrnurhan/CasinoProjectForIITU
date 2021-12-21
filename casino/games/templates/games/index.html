@@ -1,0 +1,43 @@
+{% extends 'games/base/base.html' %}
+
+{% load static %}
+
+{% block title %}Game Rules{% endblock %}
+
+{% block site_css %}
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+    <nav><a href="/games"><center><h1>Game Rules</h1></center></nav>
+    </div>
+</div>
+<main>
+    <h2><center>Smth3</center></h2>
+    <div class="container">
+    <div class="jumbotron row" style="background-color:#000000; opacity:0.9; color:yellow; font-size: 25px; font-weight: bold;">
+            {% for game_item in games %}
+                <li class="game-item">
+                    <article>
+                        <div class="game-summary">
+                            <div class="game-image">
+                                <img src="{{game_item.image.url}}" alt="">
+                            </div>
+                            <div class="game-detail">
+                                <h3>{{ game_item.title }}</h3>
+                                <p>{{ game_item.shortdesc }}</p>
+                            </div>
+                        </div>
+                        <div class="game-actions">
+                            <a href="{% url 'game-detail' game_item.slug %}">More details</a>
+
+                        </div>
+                    </article>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'games/base/base.html' %}
+
+{% load static %}
+
+{% block title %}Roulette{% endblock %}
+
+{% block site_css %}
+<link rel="stylesheet" href="static/games/css/roulette.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+   <div class="container">
+      <div class="jumbotron" style="background-color:#000000; opacity:0.9; color:#CCCCCC;">
+         <div class="roulette">
+            <canvas id='canvas' width='1000' height='350'>
+                Canvas not supported, use another browser.
+            </canvas>  
+        </div> 
+        <div class="btn-block">
+           <button class="spin_button">SPIN</button>
+      </div>
+      </div>
+      <div class="jumbotron row" style="background-color:#000000; opacity:0.9; color:yellow; font-size: 25px; font-weight: bold;">
+         <div class="col-3 text-center ">
+            <a href="blackjack.html"><img class="" src="static/games/img/blackjack.png"  width="200" height="200" /></a>
+         </div>
+         <div class="col-3 text-center">
+            <a href="roulette.html"><img src="static/games/img/roulette.png"  width="200" height="200" /></a>
+         </div>
+         <div class="col-3 text-center">
+            <a href="horserace.html"><img src="static/games/img/horserace.png"  wisdth="200" height="200" /></a>
+         </div>
+         <div class="col-3 text-center">
+            <a href="slot.html"><img src="static/games/img/slottica.png"  width="200" height="200" /></a>
+         </div>
+      </div>
+   </div>
+</div>
+<script src="static/games/js/Winwheel.min.js"></script>
+<script src="static/games/js/roulette.js"></script>
+{% endblock %}
