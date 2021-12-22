@@ -1,12 +1,18 @@
 from django.shortcuts import render,redirect
 from django.shortcuts import HttpResponse
-
+from accounts.models import CustomUser
 from .forms import RegistrationForm
 from .models import Game, Participant
+from . import models
 # Create your views here.
 
 def home_view(request):
-    return render(request, 'games/home.html')
+    initial_balance = 50000
+    #redeem = CouponForm(request.POST, user=user)
+    return render(request, 'games/home.html', {
+        'balance': initial_balance
+    })
+    #return render(request, 'games/home.html')
 
 def index(request):
     games = Game.objects.all()

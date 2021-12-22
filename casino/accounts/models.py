@@ -15,4 +15,4 @@ class CustomUser(models.Model):
     initial_balance = models.IntegerField(default=50000)    
 
     def __str__(self):
-        return f'{self.first_name} - {self.last_name}'
+        return f'{self.first_name} - {self.initial_balance}'

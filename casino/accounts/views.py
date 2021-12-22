@@ -48,8 +48,10 @@ def register_view(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(username=username, password = password1, email=email, first_name=first_name, last_name=last_name)
-                user = CustomUser.objects.create(username=username, password1 = password1, email=email, first_name=first_name, last_name=last_name)
+                user_game = CustomUser.objects.create(username=username, password1 = password1, email=email, first_name=first_name, last_name=last_name)
                 user.save();
+                user_game.save();
+                initial_balance = 50000
                 print('User created')
                 return redirect('login')
             
