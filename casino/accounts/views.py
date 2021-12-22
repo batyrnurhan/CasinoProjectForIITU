@@ -3,6 +3,7 @@ from django.db.models.manager import EmptyManager
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from .models import CustomUser
 
 # Create your views here.
 
@@ -30,10 +31,11 @@ def register_view(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
+        email = request.POST['email']
+        #profile_pic = request.POST['profile_pic']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-        email = request.POST['email']
-    
+        
 
         if password1 == password2:
             if User.objects.filter(username=username).exists():
@@ -46,6 +48,7 @@ def register_view(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(username=username, password = password1, email=email, first_name=first_name, last_name=last_name)
+                user = CustomUser.objects.create(username=username, password1 = password1, email=email, first_name=first_name, last_name=last_name)
                 user.save();
                 print('User created')
                 return redirect('login')
