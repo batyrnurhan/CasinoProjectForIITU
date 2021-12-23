@@ -48,10 +48,9 @@ def register_view(request):
                 return redirect('register')
             else:
                 user = User.objects.create_user(username=username, password = password1, email=email, first_name=first_name, last_name=last_name)
-                user_game = CustomUser.objects.create(username=username, password1 = password1, email=email, first_name=first_name, last_name=last_name)
+                user_game = CustomUser.objects.create(initial_balance = 50000, username=username, password1 = password1, email=email, first_name=first_name, last_name=last_name)
                 user.save();
                 user_game.save();
-                initial_balance = 50000
                 print('User created')
                 return redirect('login')
             
@@ -63,6 +62,10 @@ def register_view(request):
         
     else:    
         return render(request, 'games/registration.html')
+
+def balance():
+    balance = CustomUser.initial_balance
+
 
 def logout(request):
     auth.logout(request)
